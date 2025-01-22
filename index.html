@@ -1,75 +1,58 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>for youu</title>
+    <title>Text Animation</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #ff366f;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            height: 100vh;
+            margin: 0;
         }
         .container {
-            background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 400px;
-            margin: 20px;
+            text-align: center;
         }
-        h1 {
-            font-size: 2em;
-            color: #ff6f61;
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background: #ff6f61;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #e55d50;
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #555;
+        .line {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            white-space: pre-wrap;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>haii, febrianingsih!</h1>
-        <p>
-            aku tahu hari ini mungkin melelahkan, tapi aku ingin kamu tahu<br>
-            bahwa kamu luar biasa dan aku percaya bahwa kamu bisa mempertahankan
-            IPK ituu.
-        </p>
-        <p>
-            jangan lupa senyum ya, hahaha! ✨<br>
-
-        </p>
-        <button onclick="alert('kamu berhasil semangat')">Klik untuk Semangat!</button>
-        <footer>
-            dari seseorang yang ANEH 😭
-        </footer>
+        <div id="line1" class="line"></div>
+        <div id="line2" class="line"></div>
     </div>
+
+    <script>
+        const line1 = "have a nice dream";
+        const line2 = "febrianingsih alsa putri";
+
+        function animateText(elementId, text, speed) {
+            const element = document.getElementById(elementId);
+            let i = 0;
+
+            const interval = setInterval(() => {
+                element.textContent += text[i];
+                i++;
+
+                if (i === text.length) {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        animateText("line1", line1, 100);
+        setTimeout(() => {
+            animateText("line2", line2, 100);
+        }, line1.length * 100 + 500);
+    </script>
 </body>
 </html>
